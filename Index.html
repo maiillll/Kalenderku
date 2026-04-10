@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Proyek & Kalender</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --accent: #ef4444;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: #1e293b;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        /* Calendar Styling */
+        .calendar-card {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            text-align: center;
+        }
+
+        .day-name { font-weight: bold; padding: 10px; color: #64748b; }
+        .day {
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            min-height: 80px;
+            position: relative;
+        }
+
+        .day.today { border: 2px solid var(--primary); background: #eef2ff; }
+
+        .task-tag {
+            font-size: 10px;
+            background: var(--primary);
+            color: white;
+            padding: 2px 5px;
+            border-radius: 4px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Task List Styling */
+        .task-list {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .priority-high { border-left: 4px solid var(--accent); }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Proyekku</h2>
+        <p>📊 Dashboard</p>
+        <p>📅 Kalender</p>
+        <p>✅ Tugas Selesai</p>
+        <p>⚙️ Pengaturan</p>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>Manajemen Alur Kerja</h1>
+            <button>+ Tambah Tugas Baru</button>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="calendar-card">
+                <div class="calendar-header">
+                    <h3>Oktober 2023</h3>
+                    <div>&lt; Sebelumnya | Berikutnya &gt;</div>
+                </div>
+                <div class="calendar-grid">
+                    <div class="day-name">Sen</div>
+                    <div class="day-name">Sel</div>
+                    <div class="day-name">Rab</div>
+                    <div class="day-name">Kam</div>
+                    <div class="day-name">Jum</div>
+                    <div class="day-name">Sab</div>
+                    <div class="day-name">Min</div>
+                    
+                    <div class="day">1</div>
+                    <div class="day">2 <span class="task-tag">Meeting Client</span></div>
+                    <div class="day">3</div>
+                    <div class="day today">4 <span class="task-tag">Deadline UI/UX</span></div>
+                    <div class="day">5</div>
+                    <div class="day">6</div>
+                    <div class="day">7</div>
+                </div>
+            </div>
+
+            <div class="task-list">
+                <h3>Prioritas Hari Ini</h3>
+                <div class="task-item priority-high">
+                    <div>
+                        <strong>Finalisasi Prototipe</strong>
+                        <div style="font-size: 12px; color: #64748b;">Deadline: 17:00 WIB</div>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div>
+                        <strong>Review Konten Sosmed</strong>
+                        <div style="font-size: 12px; color: #64748b;">Deadline: Besok</div>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div>
+                        <strong>Update Laporan Bulanan</strong>
+                        <div style="font-size: 12px; color: #64748b;">Status: Sedang Dikerjakan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
